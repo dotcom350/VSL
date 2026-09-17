@@ -1,0 +1,887 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vender es un arte | Guia de ventas</title>
+  <meta name="description" content="Guia de ventas convertida en una experiencia web moderna en modo oscuro.">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #050505;
+      --panel: #101010;
+      --panel-2: #171717;
+      --line: rgba(255, 255, 255, .14);
+      --text: #f7f7f7;
+      --muted: #b8b8b8;
+      --red: #f51717;
+      --red-2: #9e1010;
+      --green: #00d765;
+      --green-2: #009a49;
+      --max: 1180px;
+      --radius: 8px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      min-width: 320px;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--line);
+      background: rgba(5, 5, 5, .86);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav {
+      width: min(var(--max), calc(100% - 32px));
+      min-height: 70px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(245, 23, 23, .6);
+      background: #1a0707;
+      border-radius: 8px;
+      color: var(--red);
+      font-size: 20px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .nav-links a {
+      padding: 10px 12px;
+      border-radius: 8px;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, .08);
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border: 1px solid rgba(0, 215, 101, .55);
+      border-radius: 8px;
+      background: linear-gradient(180deg, var(--green), var(--green-2));
+      color: #001f0f;
+      font-weight: 950;
+      box-shadow: 0 14px 34px rgba(0, 215, 101, .2);
+    }
+
+    .hero {
+      position: relative;
+      min-height: calc(100svh - 70px);
+      display: grid;
+      align-items: end;
+      isolation: isolate;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(90deg, rgba(0, 0, 0, .22), rgba(0, 0, 0, .64) 50%, rgba(0, 0, 0, .92)),
+        linear-gradient(0deg, #050505 0%, rgba(5, 5, 5, .15) 34%, rgba(5, 5, 5, .05) 100%);
+    }
+
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      z-index: -2;
+      filter: contrast(1.04);
+    }
+
+    .hero-inner {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 74px 0 52px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
+      align-items: end;
+      gap: 44px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      color: var(--red);
+      font-weight: 950;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 3px;
+      background: var(--red);
+      border-radius: 999px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: .94;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 800px;
+      font-size: clamp(48px, 9vw, 128px);
+      font-weight: 1000;
+    }
+
+    h1 .red {
+      color: var(--red);
+    }
+
+    .lead {
+      max-width: 700px;
+      margin: 24px 0 0;
+      color: #ededed;
+      font-size: clamp(18px, 2vw, 24px);
+      line-height: 1.45;
+      font-weight: 650;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--text);
+      font-weight: 900;
+      background: rgba(255, 255, 255, .08);
+    }
+
+    .btn:hover {
+      border-color: rgba(255, 255, 255, .34);
+      background: rgba(255, 255, 255, .13);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .stat {
+      min-height: 112px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(12, 12, 12, .72);
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--text);
+      font-size: 34px;
+      line-height: 1;
+      font-weight: 1000;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-weight: 750;
+    }
+
+    .section {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .wrap {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 84px 0;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 170px minmax(0, 1fr);
+      gap: 28px;
+      align-items: start;
+      margin-bottom: 34px;
+    }
+
+    .num {
+      color: var(--red);
+      font-size: 14px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-size: clamp(34px, 6vw, 76px);
+      font-weight: 1000;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(280px, .95fr);
+      gap: 34px;
+      align-items: start;
+    }
+
+    .copy {
+      color: #e8e8e8;
+      font-size: 18px;
+      line-height: 1.75;
+      font-weight: 560;
+    }
+
+    .copy p {
+      margin: 0 0 18px;
+    }
+
+    .copy strong {
+      color: #fff;
+      font-weight: 950;
+    }
+
+    .page-shot {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      overflow: hidden;
+      box-shadow: 0 24px 90px rgba(0, 0, 0, .52);
+    }
+
+    .page-shot img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .section-pages {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .section-pages.single {
+      grid-template-columns: minmax(0, 680px);
+      justify-content: center;
+    }
+
+    .index-grid,
+    .learn-grid,
+    .levels {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .tile,
+    .learn,
+    .level {
+      min-height: 126px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+    }
+
+    .tile span,
+    .learn span,
+    .level span {
+      color: var(--red);
+      font-weight: 950;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    .tile strong,
+    .learn strong,
+    .level strong {
+      display: block;
+      margin-top: 12px;
+      color: #fff;
+      font-size: 22px;
+      line-height: 1.12;
+      text-transform: uppercase;
+    }
+
+    .band {
+      background: #f4f4f4;
+      color: #050505;
+      border-bottom: 0;
+    }
+
+    .band .copy {
+      color: #101010;
+    }
+
+    .band .num {
+      color: var(--red-2);
+    }
+
+    .band h2 {
+      color: #050505;
+    }
+
+    .quote {
+      padding: 28px;
+      border-left: 5px solid var(--red);
+      background: var(--panel-2);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      color: #fff;
+      font-size: clamp(24px, 4vw, 44px);
+      line-height: 1.1;
+      font-weight: 1000;
+      text-transform: uppercase;
+    }
+
+    .bullets {
+      display: grid;
+      gap: 12px;
+      padding: 0;
+      margin: 24px 0 0;
+      list-style: none;
+    }
+
+    .bullets li {
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .05);
+      color: #f2f2f2;
+      font-weight: 760;
+    }
+
+    .gallery-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .filter {
+      min-height: 42px;
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--muted);
+      font: inherit;
+      font-weight: 850;
+      cursor: pointer;
+    }
+
+    .filter.active {
+      color: #fff;
+      border-color: rgba(245, 23, 23, .7);
+      background: #210808;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .doc-page {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      overflow: hidden;
+    }
+
+    .doc-page figure {
+      margin: 0;
+    }
+
+    .doc-page img {
+      width: 100%;
+      aspect-ratio: 1191 / 1685;
+      object-fit: cover;
+      background: #111;
+    }
+
+    .doc-page figcaption {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .final-cta {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: center;
+      padding: 42px;
+      border: 1px solid rgba(0, 215, 101, .35);
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(0, 215, 101, .14), rgba(245, 23, 23, .08) 50%, rgba(255, 255, 255, .05));
+    }
+
+    .final-cta h2 {
+      font-size: clamp(34px, 6vw, 84px);
+    }
+
+    .final-cta p {
+      max-width: 760px;
+      margin: 16px 0 0;
+      color: #e6e6e6;
+      font-size: 19px;
+      line-height: 1.55;
+      font-weight: 650;
+    }
+
+    .final-cta .cta {
+      min-width: 280px;
+      min-height: 88px;
+      padding: 26px 48px;
+      font-size: 22px;
+    }
+
+    .mobile-only {
+      display: none;
+    }
+
+    .mobile-break {
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .nav {
+        min-height: 64px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-only {
+        display: inline-flex;
+      }
+
+      .mobile-break {
+        display: block;
+      }
+
+      .hero {
+        min-height: 820px;
+      }
+
+      .hero::after {
+        background:
+          linear-gradient(0deg, #050505 0%, rgba(5, 5, 5, .66) 45%, rgba(5, 5, 5, .16) 100%),
+          linear-gradient(90deg, rgba(0, 0, 0, .1), rgba(0, 0, 0, .5));
+      }
+
+      .hero-img {
+        object-position: 42% top;
+      }
+
+      .hero-inner,
+      .grid-2,
+      .section-head,
+      .final-cta {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-inner {
+        gap: 24px;
+        padding-bottom: 38px;
+      }
+
+      .wrap {
+        padding: 64px 0;
+      }
+
+      .index-grid,
+      .learn-grid,
+      .levels,
+      .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .nav {
+        width: min(var(--max), calc(100% - 24px));
+      }
+
+      .brand span {
+        max-width: 160px;
+        line-height: 1.1;
+      }
+
+      .wrap,
+      .hero-inner {
+        width: min(var(--max), calc(100% - 24px));
+      }
+
+      h1 {
+        font-size: clamp(34px, 10vw, 48px);
+      }
+
+      .lead,
+      .copy,
+      .final-cta p {
+        font-size: 16px;
+      }
+
+      .lead {
+        max-width: 340px;
+      }
+
+      .stats,
+      .index-grid,
+      .learn-grid,
+      .levels,
+      .section-pages,
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions .btn,
+      .hero-actions .cta,
+      .final-cta .cta {
+        width: 100%;
+      }
+
+      .final-cta {
+        padding: 24px;
+      }
+
+      .final-cta .cta {
+        min-width: 0;
+        min-height: 56px;
+        padding: 16px 24px;
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav" aria-label="Navegacion principal">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio">
+        <span class="brand-mark">A</span>
+        <span>Adrian Bisne</span>
+      </a>
+      <div class="nav-links" aria-label="Secciones">
+        <a href="#quien-soy">Quien soy</a>
+        <a href="#ventas">Ventas</a>
+        <a href="#modelo">Modelo</a>
+        <a href="#paginas">PDF</a>
+      </div>
+      <a class="cta" href="https://impactodigital.vip/register" target="_blank" rel="noopener">Entrar</a>
+    </nav>
+  </header>
+
+  <main id="inicio">
+    <section class="hero" aria-labelledby="hero-title">
+      <img class="hero-img" src="assets/pages/page-01.webp" alt="Portada del PDF: Vender es un arte y yo me hice artista.">
+      <div class="hero-inner">
+        <div>
+          <div class="eyebrow">Guia de ventas</div>
+          <h1 id="hero-title">Vender es <br class="mobile-break">un arte y yo, <br class="mobile-break"><span class="red">me hice <br class="mobile-break">artista</span></h1>
+          <div class="hero-actions">
+            <a class="cta" href="https://impactodigital.vip/register" target="_blank" rel="noopener">Registrarme ahora</a>
+            <a class="btn" href="#paginas">Ver PDF completo</a>
+            <a class="btn" href="Guia%20De%20Ventas%20Acatualizada.pdf" download>Descargar guia</a>
+          </div>
+        </div>
+        <div class="stats" aria-label="Resumen de la academia">
+          <div class="stat"><strong>+70</strong><span>Cursos premium</span></div>
+          <div class="stat"><strong>+100</strong><span>Miembros en comunidad</span></div>
+          <div class="stat"><strong>17K</strong><span>USD invertidos</span></div>
+          <div class="stat"><strong>24/7</strong><span>Soporte y acceso</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="indice">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="num">Indice</div>
+          <h2>Todo el recorrido</h2>
+        </div>
+        <div class="index-grid">
+          <a class="tile" href="#quien-soy"><span>01</span><strong>Quien soy</strong></a>
+          <a class="tile" href="#ventas"><span>02</span><strong>Introduccion a las ventas</strong></a>
+          <a class="tile" href="#porque"><span>03</span><strong>Por que ventas</strong></a>
+          <a class="tile" href="#empezar"><span>04</span><strong>Como empezar</strong></a>
+          <a class="tile" href="#redes"><span>05</span><strong>Redes sociales</strong></a>
+          <a class="tile" href="#negocio"><span>06</span><strong>Negocio en Cuba</strong></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="quien-soy">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="num">01 / Quien soy</div>
+          <h2>De Mayabeque al negocio online</h2>
+        </div>
+        <div class="section-pages single">
+          <div class="page-shot">
+            <img src="assets/pages/page-03.webp" alt="Pagina del PDF: Quien soy." loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section band">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="num">Recomendacion</div>
+          <h2>Aprende una habilidad que pague mejor</h2>
+        </div>
+        <div class="section-pages single">
+          <div class="page-shot">
+            <img src="assets/pages/page-05.webp" alt="Pagina del PDF con recomendacion." loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ventas">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="num">02 / Ventas</div>
+          <h2>Introduccion a las ventas</h2>
+        </div>
+        <div class="section-pages single">
+          <div class="page-shot">
+            <img src="assets/pages/page-06.webp" alt="Pagina del PDF: Introduccion a las ventas." loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="porque">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="num">03 / Por que ventas</div>
+          <h2>Vender es resolver problemas</h2>
+        </div>
+        <div class="section-pages single">
+          <div class="page-shot">
+            <img src="assets/pages/page-07.webp" alt="Pagina del PDF: Por que ventas." loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="empezar">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="num">04 / Como empezar</div>
+          <h2>Producto, cliente y canal</h2>
+        </div>
+        <div class="section-pages single">
+          <div class="page-shot">
+            <img src="assets/pages/page-08.webp" alt="Pagina del PDF: Como empezar." loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="redes">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="num">05 / Redes sociales</div>
+          <h2>Mentores, contenido y autoridad</h2>
+        </div>
+        <div class="section-pages single">
+          <div class="page-shot">
+            <img src="assets/pages/page-10.webp" alt="Pagina del PDF sobre academia premium." loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="modelo">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="num">Modelo de negocio</div>
+          <h2>Lo que aprendes</h2>
+        </div>
+        <div class="section-pages">
+          <div class="page-shot"><img src="assets/pages/page-11.webp" alt="Pagina del PDF: Ventas y dinero." loading="lazy"></div>
+          <div class="page-shot"><img src="assets/pages/page-12.webp" alt="Pagina del PDF: Mentalidad de exito." loading="lazy"></div>
+          <div class="page-shot"><img src="assets/pages/page-13.webp" alt="Pagina del PDF: Ser viral en internet." loading="lazy"></div>
+          <div class="page-shot"><img src="assets/pages/page-14.webp" alt="Pagina del PDF: Otras habilidades." loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section band" id="negocio">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="num">06 / Negocio</div>
+          <h2>Oportunidad para vender y cobrar</h2>
+        </div>
+        <div class="section-pages">
+          <div class="page-shot"><img src="assets/pages/page-15.webp" alt="Pagina del PDF: Oportunidad de negocio." loading="lazy"></div>
+          <div class="page-shot"><img src="assets/pages/page-16.webp" alt="Pagina del PDF: Cursos e inversion." loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="num">Casos de exito</div>
+          <h2>Resultados de alumnos</h2>
+        </div>
+        <div class="section-pages single">
+          <div class="page-shot">
+            <img src="assets/pages/page-17.webp" alt="Pagina del PDF: Casos de exito." loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="paginas">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="num">PDF completo</div>
+          <h2>Paginas originales</h2>
+        </div>
+        <div class="gallery-controls" aria-label="Filtros de paginas">
+          <button class="filter active" type="button" data-filter="all">Todas</button>
+          <button class="filter" type="button" data-filter="historia">Historia</button>
+          <button class="filter" type="button" data-filter="ventas">Ventas</button>
+          <button class="filter" type="button" data-filter="negocio">Negocio</button>
+        </div>
+        <div class="gallery">
+          <article class="doc-page" data-group="historia"><figure><img src="assets/pages/page-01.webp" alt="Pagina 1: Portada." loading="lazy"><figcaption><span>Pagina 01</span><span>Portada</span></figcaption></figure></article>
+          <article class="doc-page" data-group="historia"><figure><img src="assets/pages/page-02.webp" alt="Pagina 2: Indice." loading="lazy"><figcaption><span>Pagina 02</span><span>Indice</span></figcaption></figure></article>
+          <article class="doc-page" data-group="historia"><figure><img src="assets/pages/page-03.webp" alt="Pagina 3: Quien soy." loading="lazy"><figcaption><span>Pagina 03</span><span>Quien soy</span></figcaption></figure></article>
+          <article class="doc-page" data-group="historia"><figure><img src="assets/pages/page-04.webp" alt="Pagina 4: Antes y despues." loading="lazy"><figcaption><span>Pagina 04</span><span>Antes y despues</span></figcaption></figure></article>
+          <article class="doc-page" data-group="historia"><figure><img src="assets/pages/page-05.webp" alt="Pagina 5: Recomendacion." loading="lazy"><figcaption><span>Pagina 05</span><span>Recomendacion</span></figcaption></figure></article>
+          <article class="doc-page" data-group="ventas"><figure><img src="assets/pages/page-06.webp" alt="Pagina 6: Introduccion a las ventas." loading="lazy"><figcaption><span>Pagina 06</span><span>Introduccion</span></figcaption></figure></article>
+          <article class="doc-page" data-group="ventas"><figure><img src="assets/pages/page-07.webp" alt="Pagina 7: Por que ventas." loading="lazy"><figcaption><span>Pagina 07</span><span>Por que ventas</span></figcaption></figure></article>
+          <article class="doc-page" data-group="ventas"><figure><img src="assets/pages/page-08.webp" alt="Pagina 8: Como empezar." loading="lazy"><figcaption><span>Pagina 08</span><span>Como empezar</span></figcaption></figure></article>
+          <article class="doc-page" data-group="negocio"><figure><img src="assets/pages/page-09.webp" alt="Pagina 9: Mentores." loading="lazy"><figcaption><span>Pagina 09</span><span>Mentores</span></figcaption></figure></article>
+          <article class="doc-page" data-group="negocio"><figure><img src="assets/pages/page-10.webp" alt="Pagina 10: Academia premium." loading="lazy"><figcaption><span>Pagina 10</span><span>Academia</span></figcaption></figure></article>
+          <article class="doc-page" data-group="negocio"><figure><img src="assets/pages/page-11.webp" alt="Pagina 11: Ventas y dinero." loading="lazy"><figcaption><span>Pagina 11</span><span>Ventas y dinero</span></figcaption></figure></article>
+          <article class="doc-page" data-group="negocio"><figure><img src="assets/pages/page-12.webp" alt="Pagina 12: Mentalidad de exito." loading="lazy"><figcaption><span>Pagina 12</span><span>Mentalidad</span></figcaption></figure></article>
+          <article class="doc-page" data-group="negocio"><figure><img src="assets/pages/page-13.webp" alt="Pagina 13: Ser viral." loading="lazy"><figcaption><span>Pagina 13</span><span>Ser viral</span></figcaption></figure></article>
+          <article class="doc-page" data-group="negocio"><figure><img src="assets/pages/page-14.webp" alt="Pagina 14: Otras habilidades." loading="lazy"><figcaption><span>Pagina 14</span><span>Habilidades</span></figcaption></figure></article>
+          <article class="doc-page" data-group="negocio"><figure><img src="assets/pages/page-15.webp" alt="Pagina 15: Oportunidad de negocio." loading="lazy"><figcaption><span>Pagina 15</span><span>Oportunidad</span></figcaption></figure></article>
+          <article class="doc-page" data-group="negocio"><figure><img src="assets/pages/page-16.webp" alt="Pagina 16: Cursos e inversion." loading="lazy"><figcaption><span>Pagina 16</span><span>Cursos</span></figcaption></figure></article>
+          <article class="doc-page" data-group="negocio"><figure><img src="assets/pages/page-17.webp" alt="Pagina 17: Casos de exito." loading="lazy"><figcaption><span>Pagina 17</span><span>Casos</span></figcaption></figure></article>
+          <article class="doc-page" data-group="negocio"><figure><img src="assets/pages/page-18.webp" alt="Pagina 18: Registro y cierre." loading="lazy"><figcaption><span>Pagina 18</span><span>Registro</span></figcaption></figure></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="entrar">
+      <div class="wrap">
+        <div class="final-cta">
+          <div>
+            <div class="eyebrow">Siguiente paso</div>
+            <h2>Que va a pasar cuando te unas</h2>
+          </div>
+          <a class="cta" href="https://impactodigital.vip/register" target="_blank" rel="noopener">Entrar</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const filters = document.querySelectorAll(".filter");
+    const pages = document.querySelectorAll(".doc-page");
+
+    filters.forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.dataset.filter;
+        filters.forEach((item) => item.classList.toggle("active", item === button));
+        pages.forEach((page) => {
+          page.hidden = filter !== "all" && page.dataset.group !== filter;
+        });
+      });
+    });
+  </script>
+</body>
+</html>
