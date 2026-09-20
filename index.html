@@ -431,66 +431,6 @@
       font-weight: 760;
     }
 
-    .gallery-controls {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 22px;
-    }
-
-    .filter {
-      min-height: 42px;
-      padding: 0 14px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: var(--panel);
-      color: var(--muted);
-      font: inherit;
-      font-weight: 850;
-      cursor: pointer;
-    }
-
-    .filter.active {
-      color: #fff;
-      border-color: rgba(245, 23, 23, .7);
-      background: #210808;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .doc-page {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--panel);
-      overflow: hidden;
-    }
-
-    .doc-page figure {
-      margin: 0;
-    }
-
-    .doc-page img {
-      width: 100%;
-      aspect-ratio: 1191 / 1685;
-      object-fit: cover;
-      background: #111;
-    }
-
-    .doc-page figcaption {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 12px 14px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 800;
-    }
-
     .final-cta {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
@@ -579,8 +519,7 @@
 
       .index-grid,
       .learn-grid,
-      .levels,
-      .gallery {
+      .levels {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
@@ -618,8 +557,7 @@
       .index-grid,
       .learn-grid,
       .levels,
-      .section-pages,
-      .gallery {
+      .section-pages {
         grid-template-columns: 1fr;
       }
 
@@ -653,7 +591,6 @@
         <a href="#quien-soy">Quien soy</a>
         <a href="#ventas">Ventas</a>
         <a href="#modelo">Modelo</a>
-        <a href="#paginas">PDF</a>
       </div>
       <a class="cta" href="https://impactodigital.vip/register" target="_blank" rel="noopener">Entrar</a>
     </nav>
@@ -668,7 +605,6 @@
           <h1 id="hero-title">Vender es <br class="mobile-break">un arte y yo, <br class="mobile-break"><span class="red">me hice <br class="mobile-break">artista</span></h1>
           <div class="hero-actions">
             <a class="cta" href="https://impactodigital.vip/register" target="_blank" rel="noopener">Registrarme ahora</a>
-            <a class="btn" href="#paginas">Ver PDF completo</a>
             <a class="btn" href="Guia%20De%20Ventas%20Acatualizada.pdf" download>Descargar guia</a>
           </div>
         </div>
@@ -824,41 +760,6 @@
       </div>
     </section>
 
-    <section class="section" id="paginas">
-      <div class="wrap">
-        <div class="section-head">
-          <div class="num">PDF completo</div>
-          <h2>Paginas originales</h2>
-        </div>
-        <div class="gallery-controls" aria-label="Filtros de paginas">
-          <button class="filter active" type="button" data-filter="all">Todas</button>
-          <button class="filter" type="button" data-filter="historia">Historia</button>
-          <button class="filter" type="button" data-filter="ventas">Ventas</button>
-          <button class="filter" type="button" data-filter="negocio">Negocio</button>
-        </div>
-        <div class="gallery">
-          <article class="doc-page" data-group="historia"><figure><img src="assets/pages/page-01.webp" srcset="assets/pages/page-01-480.webp 480w, assets/pages/page-01-720.webp 720w, assets/pages/page-01.webp 1191w" sizes="(max-width: 900px) calc(100vw - 24px), 381px" alt="Pagina 1: Portada." width="1191" height="1685" loading="lazy" decoding="async"><figcaption><span>Pagina 01</span><span>Portada</span></figcaption></figure></article>
-          <article class="doc-page" data-group="historia"><figure><img src="assets/pages/page-02.webp" srcset="assets/pages/page-02-480.webp 480w, assets/pages/page-02-720.webp 720w, assets/pages/page-02.webp 1191w" sizes="(max-width: 900px) calc(100vw - 24px), 381px" alt="Pagina 2: Indice." width="1191" height="1685" loading="lazy" decoding="async"><figcaption><span>Pagina 02</span><span>Indice</span></figcaption></figure></article>
-          <article class="doc-page" data-group="historia"><figure><img src="assets/pages/page-03.webp" srcset="assets/pages/page-03-480.webp 480w, assets/pages/page-03-720.webp 720w, assets/pages/page-03.webp 1191w" sizes="(max-width: 900px) calc(100vw - 24px), 381px" alt="Pagina 3: Quien soy." width="1191" height="1685" loading="lazy" decoding="async"><figcaption><span>Pagina 03</span><span>Quien soy</span></figcaption></figure></article>
-          <article class="doc-page" data-group="historia"><figure><img src="assets/pages/page-04.webp" srcset="assets/pages/page-04-480.webp 480w, assets/pages/page-04-720.webp 720w, assets/pages/page-04.webp 1191w" sizes="(max-width: 900px) calc(100vw - 24px), 381px" alt="Pagina 4: Antes y despues." width="1191" height="1685" loading="lazy" decoding="async"><figcaption><span>Pagina 04</span><span>Antes y despues</span></figcaption></figure></article>
-          <article class="doc-page" data-group="historia"><figure><img src="assets/pages/page-05.webp" srcset="assets/pages/page-05-480.webp 480w, assets/pages/page-05-720.webp 720w, assets/pages/page-05.webp 1191w" sizes="(max-width: 900px) calc(100vw - 24px), 381px" alt="Pagina 5: Recomendacion." width="1191" height="1685" loading="lazy" decoding="async"><figcaption><span>Pagina 05</span><span>Recomendacion</span></figcaption></figure></article>
-          <article class="doc-page" data-group="ventas"><figure><img src="assets/pages/page-06.webp" srcset="assets/pages/page-06-480.webp 480w, assets/pages/page-06-720.webp 720w, assets/pages/page-06.webp 1191w" sizes="(max-width: 900px) calc(100vw - 24px), 381px" alt="Pagina 6: Introduccion a las ventas." width="1191" height="1685" loading="lazy" decoding="async"><figcaption><span>Pagina 06</span><span>Introduccion</span></figcaption></figure></article>
-          <article class="doc-page" data-group="ventas"><figure><img src="assets/pages/page-07.webp" srcset="assets/pages/page-07-480.webp 480w, assets/pages/page-07-720.webp 720w, assets/pages/page-07.webp 1191w" sizes="(max-width: 900px) calc(100vw - 24px), 381px" alt="Pagina 7: Por que ventas." width="1191" height="1685" loading="lazy" decoding="async"><figcaption><span>Pagina 07</span><span>Por que ventas</span></figcaption></figure></article>
-          <article class="doc-page" data-group="ventas"><figure><img src="assets/pages/page-08.webp" srcset="assets/pages/page-08-480.webp 480w, assets/pages/page-08-720.webp 720w, assets/pages/page-08.webp 1191w" sizes="(max-width: 900px) calc(100vw - 24px), 381px" alt="Pagina 8: Como empezar." width="1191" height="1685" loading="lazy" decoding="async"><figcaption><span>Pagina 08</span><span>Como empezar</span></figcaption></figure></article>
-          <article class="doc-page" data-group="negocio"><figure><img src="assets/pages/page-09.webp" srcset="assets/pages/page-09-480.webp 480w, assets/pages/page-09-720.webp 720w, assets/pages/page-09.webp 1191w" sizes="(max-width: 900px) calc(100vw - 24px), 381px" alt="Pagina 9: Mentores." width="1191" height="1685" loading="lazy" decoding="async"><figcaption><span>Pagina 09</span><span>Mentores</span></figcaption></figure></article>
-          <article class="doc-page" data-group="negocio"><figure><img src="assets/pages/page-10.webp" srcset="assets/pages/page-10-480.webp 480w, assets/pages/page-10-720.webp 720w, assets/pages/page-10.webp 1191w" sizes="(max-width: 900px) calc(100vw - 24px), 381px" alt="Pagina 10: Academia premium." width="1191" height="1685" loading="lazy" decoding="async"><figcaption><span>Pagina 10</span><span>Academia</span></figcaption></figure></article>
-          <article class="doc-page" data-group="negocio"><figure><img src="assets/pages/page-11.webp" srcset="assets/pages/page-11-480.webp 480w, assets/pages/page-11-720.webp 720w, assets/pages/page-11.webp 1191w" sizes="(max-width: 900px) calc(100vw - 24px), 381px" alt="Pagina 11: Ventas y dinero." width="1191" height="1685" loading="lazy" decoding="async"><figcaption><span>Pagina 11</span><span>Ventas y dinero</span></figcaption></figure></article>
-          <article class="doc-page" data-group="negocio"><figure><img src="assets/pages/page-12.webp" srcset="assets/pages/page-12-480.webp 480w, assets/pages/page-12-720.webp 720w, assets/pages/page-12.webp 1191w" sizes="(max-width: 900px) calc(100vw - 24px), 381px" alt="Pagina 12: Mentalidad de exito." width="1191" height="1685" loading="lazy" decoding="async"><figcaption><span>Pagina 12</span><span>Mentalidad</span></figcaption></figure></article>
-          <article class="doc-page" data-group="negocio"><figure><img src="assets/pages/page-13.webp" srcset="assets/pages/page-13-480.webp 480w, assets/pages/page-13-720.webp 720w, assets/pages/page-13.webp 1191w" sizes="(max-width: 900px) calc(100vw - 24px), 381px" alt="Pagina 13: Ser viral." width="1191" height="1685" loading="lazy" decoding="async"><figcaption><span>Pagina 13</span><span>Ser viral</span></figcaption></figure></article>
-          <article class="doc-page" data-group="negocio"><figure><img src="assets/pages/page-14.webp" srcset="assets/pages/page-14-480.webp 480w, assets/pages/page-14-720.webp 720w, assets/pages/page-14.webp 1191w" sizes="(max-width: 900px) calc(100vw - 24px), 381px" alt="Pagina 14: Otras habilidades." width="1191" height="1685" loading="lazy" decoding="async"><figcaption><span>Pagina 14</span><span>Habilidades</span></figcaption></figure></article>
-          <article class="doc-page" data-group="negocio"><figure><img src="assets/pages/page-15.webp" srcset="assets/pages/page-15-480.webp 480w, assets/pages/page-15-720.webp 720w, assets/pages/page-15.webp 1191w" sizes="(max-width: 900px) calc(100vw - 24px), 381px" alt="Pagina 15: Oportunidad de negocio." width="1191" height="1685" loading="lazy" decoding="async"><figcaption><span>Pagina 15</span><span>Oportunidad</span></figcaption></figure></article>
-          <article class="doc-page" data-group="negocio"><figure><img src="assets/pages/page-16.webp" srcset="assets/pages/page-16-480.webp 480w, assets/pages/page-16-720.webp 720w, assets/pages/page-16.webp 1191w" sizes="(max-width: 900px) calc(100vw - 24px), 381px" alt="Pagina 16: Cursos e inversion." width="1191" height="1685" loading="lazy" decoding="async"><figcaption><span>Pagina 16</span><span>Cursos</span></figcaption></figure></article>
-          <article class="doc-page" data-group="negocio"><figure><img src="assets/pages/page-17.webp" srcset="assets/pages/page-17-480.webp 480w, assets/pages/page-17-720.webp 720w, assets/pages/page-17.webp 1191w" sizes="(max-width: 900px) calc(100vw - 24px), 381px" alt="Pagina 17: Casos de exito." width="1191" height="1685" loading="lazy" decoding="async"><figcaption><span>Pagina 17</span><span>Casos</span></figcaption></figure></article>
-          <article class="doc-page" data-group="negocio"><figure><img src="assets/pages/page-18.webp" srcset="assets/pages/page-18-480.webp 480w, assets/pages/page-18-720.webp 720w, assets/pages/page-18.webp 1191w" sizes="(max-width: 900px) calc(100vw - 24px), 381px" alt="Pagina 18: Registro y cierre." width="1191" height="1685" loading="lazy" decoding="async"><figcaption><span>Pagina 18</span><span>Registro</span></figcaption></figure></article>
-        </div>
-      </div>
-    </section>
-
     <section class="section" id="entrar">
       <div class="wrap">
         <div class="final-cta">
@@ -871,20 +772,5 @@
       </div>
     </section>
   </main>
-
-  <script>
-    const filters = document.querySelectorAll(".filter");
-    const pages = document.querySelectorAll(".doc-page");
-
-    filters.forEach((button) => {
-      button.addEventListener("click", () => {
-        const filter = button.dataset.filter;
-        filters.forEach((item) => item.classList.toggle("active", item === button));
-        pages.forEach((page) => {
-          page.hidden = filter !== "all" && page.dataset.group !== filter;
-        });
-      });
-    });
-  </script>
 </body>
 </html>
